@@ -1,0 +1,30 @@
+{% extends "./base.html" %}
+{% load static %}
+
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock link %}
+
+
+
+
+{% block content %}
+    <div class="row box bg-body-tertiary">
+        <div class="col-6 ">
+            <h2 class="wl"> - Wellcome to</h2>
+            <h1 class="name">KHANA PANI</h1>
+            <p class="para">
+                Food is a vital need for our living and people from different geographic locations are habituated to eat foods differently and the menu differs so greatly. Many people are happy to eat food outside the home and they think that preparing foods is a waste of time but to others outside food is like a toxin and they always avoid outside foods and prepare foods at home. In my opinion, both ways of taking foods have some advantages and disadvantages.
+            </p>
+            <button class="btnn">Contac Us</button>
+        </div>
+        <div class="col-6 bg-body-tertiary">
+            <img class="w-100 h-100 pe-4" src="{% static 'images/home.png' %}" alt="Home Image">
+        </div>
+    </div>
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,52 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/style02.css' %}">
+{% endblock link %}
+
+
+{% block content %}
+    <div class="row main w-100 d-flex bg-body-secondary flex-wrap align-items-center justify-content-center">
+        <div class="col-6 ">
+            <h1 class="text">About Us</h1>
+            <p class="text2">
+                <em class="text3">Welcome to Khana Pani Restaurant!</em> <br>
+                We're more than just a place to eat - we're a community, a gathering place, and a celebration of bold flavors and good times.
+                It all started with a dream. A dream of creating a space where people could connect over delicious food, crafted with passion and fresh, local ingredients. A dream of a restaurant that wasn't just about a meal, but about an experience.
+            </p>
+            
+
+            <div class="int">
+                <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputText1" class="form-label">Message</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1">
+                      </div>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+        </div>
+        <div class="col-6 d-flex bg-body-secondary flex-wrap align-items-center justify-content-center">
+            <img class="im" src="{% static 'images/download.jpeg'%}" alt="">
+        </div>
+
+    </div>
+
+    
+{% endblock content %}
