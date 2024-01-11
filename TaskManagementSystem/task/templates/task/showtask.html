@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    {% if datas %}
+    <div class="container d-flex justify-content-center gap-5 flex-wrap ">
+        {% for data in datas %}
+            <div class="d-flex justify-content-center gap-5 mt-5 text-center flex-wrap">
+                {% for tsk in data.task.all %}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                    <h4 class="card-title">{{tsk.id}}</h4>
+                    <h5 class="card-title">{{tsk.TaskAssignDate}}</h5>
+                    <p class="card-text">{{tsk.taskDescription}}</p>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{data.category_Name}}</h6>
+                    {% if tsk.isCompleted == True %}
+                        <a class="btn btn-success" disabled>Completed</a>
+                    {% else %}
+                        <a href="{% url 'edit_task' tsk.id %}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{% url 'delete_task' tsk.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <h1>No Data Available.</h1>
+    {% endif %}
+
+
+{% endblock content %}
