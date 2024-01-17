@@ -1,0 +1,40 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="d-flex align-items-center justify-content-center m-5 gap-5">
+        <div class="col-4 me-5 p-3">
+            <h1 class="pt-3">CAR MART</h1>
+            <h3 class="pt-3">Now Your City...</h3>
+            <p class="pt-3">
+                Branded cars are more than just shiny symbols of wealth and speed. They represent a carefully crafted image, a promise of identity and belonging. Owning a certain brand tells a story about who you are, what you value, and how you see yourself in the world.
+            </p>
+        </div>
+        <div calss="col-8">
+            <img class="w-100 mt-5 ps-3" src="{% static 'showroom.jpg' %}" alt="homepage image">
+        </div>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center gap-5 mt-5">
+        {% for name in data %}
+            <a class="btn btn-secondary" href="{% url 'home_slug' name.slug %}">{{name.brand_name}}</a>
+        {% endfor %}
+    </div>
+    <div class="m-5 text-center">
+        <h2>Total Cars Found: {{cars | length}}</h2>
+    </div>
+    <div class="d-flex mt-5 align-items-center justify-content-center gap-5 flex-warp mb-5">
+        
+        {% for car in cars %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{car.car_image.url}}" class="card-img-top" alt="car image">
+            <div class="card-body">
+              <h5 class="card-title">{{car.car_name}}</h5>
+              <h5 class="card-title">{{car.car_price}}</h5>
+              <h5 class="card-title">{{car.brand.brand_name}}</h5>
+              <a href="{% url 'details' car.id %}" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
